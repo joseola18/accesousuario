@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OLA TRADING VIP - Acciones & Criptos</title>
+  <meta name="description" content="OLA TRADING VIP - Señales profesionales en vivo con análisis técnico avanzado. Acciones y Criptomonedas." />
+
+  <!-- Fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- TradingView core (necesario para new TradingView.widget) -->
+  <script src="https://s3.tradingview.com/tv.js"></script>
+
+  <style>
+    :root{
+      --gold: #d4af37;
+      --gold-dark: #e6b800;
+      --bg-1: #0a0a0a;
+      --bg-2: #1a1a1a;
+      --card: #141414;
+      --card-border: #2a2a2a;
+      --muted: #cfcfcf;
+    }
+    *{box-sizing:border-box}
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
+      color: #f5f5f5;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    /* HEADER */
+    .site-header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.25rem 1rem;
+    }
+    header {
+      text-align: center;
+      padding: 1.25rem 1rem 0.8rem 1rem;
+      background: #111;
+      border-bottom: 2px solid var(--gold);
+      border-radius: 0 0 12px 12px;
+    }
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 0;
+      letter-spacing: 0.6px;
+    }
+    .welcome {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.9rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* Botonera superior */
+    .top-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      padding: 0.4rem 0;
+      margin-bottom: 0.6rem;
+    }
+    .gold-button {
+      background: var(--gold);
+      color: #000;
+      font-weight: 700;
+      padding: 0.55rem 1.15rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.12s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 110px;
+    }
+    .gold-button:hover { background: var(--gold-dark); transform: translateY(-2px); }
+
+    /* Ticker */
+    .ticker {
+      background: #000;
+      padding: 0.5rem 0;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+
+    /* Señales */
+    .signal-block {
+      margin: 1.5rem auto;
+      max-width: 1000px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.2rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+    }
+    .signal-block h2 {
+      text-align: center;
+      font-size: 1.25rem;
+      color: var(--gold);
+      margin: 0 0 0.75rem 0;
+    }
+    .tradingview-widget-container {
+      margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      border-top: 2px solid var(--gold);
+      margin-top: 2.5rem;
+    }
+    .vip-button {
+      display: inline-block;
+      background: var(--gold);
+      color: #000;
+      font-weight: 700;
+      padding: 0.8rem 1.6rem;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .vip-button:hover { background: var(--gold-dark); }
+
+    /* Responsive adjustments */
+    @media (max-width: 700px) {
+      header h1 { font-size: 1.8rem; }
+      .gold-button { min-width: 44%; padding: 0.5rem; font-size: 0.95rem; }
+      .signal-block { margin: 1rem 0.8rem; padding: 1rem; border-radius: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="site-header">
+    <header>
+      <h1>OLA TRADING VIP</h1>
+
+      <!-- Bienvenida -->
+      <div class="welcome">BIENVENIDO USUARIO 56981 – BALANCE: 824.23 USD</div>
+
+      <!-- Botones -->
+      <div class="top-buttons">
+        <a href="#" class="gold-button">ALARMAS</a>
+        <a href="#" class="gold-button">DEPÓSITOS</a>
+        <a href="#" class="gold-button">RETIROS</a>
+        <a href="#" class="gold-button">COPYTRADING</a>
+        <a href="#" class="gold-button">COMUNIDAD</a>
+      </div>
+    </header>
+  </div>
+
+  <!-- Ticker -->
+  <div class="ticker">
+    <div class="tradingview-widget-container" style="max-width:1100px;margin:0 auto;">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {
+        "symbols": [
+          {"proName": "NYSE:KO", "title": "Coca Cola"},
+          {"proName": "NASDAQ:META", "title": "Meta"},
+          {"proName": "NYSE:NKE", "title": "Nike"},
+          {"proName": "NYSE:MCD", "title": "McDonald's"},
+          {"proName": "BCBA:YPFD", "title": "YPF"},
+          {"proName": "BCBA:LEDE", "title": "Ledesma"},
+          {"proName": "GATEIO:OLAUSDT", "title": "OLA/USDT"}
+        ],
+        "showSymbolLogo": true,
+        "colorTheme": "dark",
+        "isTransparent": false,
+        "displayMode": "adaptive",
+        "locale": "es"
+      }
+      </script>
+    </div>
+  </div>
+
+  <!-- COCA COLA -->
+  <div class="signal-block">
+    <h2>COCA COLA - KO</h2>
+    <div id="tradingview_ko" class="tradingview-widget-container"></div>
+    <script>
+      new TradingView.widget({
+        "container_id": "tradingview_ko",
+        "width": "100%",
+        "height": 420,
+        "symbol": "NYSE:KO",
+        "interval": "30",
+        "timezone": "Etc/UTC",
+        "theme": "dark",
+        "style": "1",
+        "studies": ["RSI@tv-basicstudies","MACD@tv-basicstudies"],
+        "locale": "es"
+      });
+    </script>
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+      {
+        "interval": "1m",
+        "width": "100%",
+        "height": 300,
+        "symbol": "NYSE:KO",
+        "showIntervalTabs": true,
+        "locale": "es",
+        "colorTheme": "dark"
+      }
+      </script>
+    </div>
+  </div>
+
+  <!-- META -->
+  <div class="signal-block">
+    <h2>META - META</h2>
+    <div id="tradingview_meta" class="tradingview-widget-container"></div>
+    <script>
+      new TradingView.widget({
+        "container_id": "tradingview_meta",
+        "width": "100%",
+        "height": 420,
+        "symbol": "NASDAQ:META",
+        "interval": "30",
+        "timezone": "Etc/UTC",
+        "theme": "dark",
+        "style": "1",
+        "studies": ["RSI@tv-basicstudies","MACD@tv-basicstudies"],
+        "locale": "es"
+      });
+    </script>
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+      {
+        "interval": "1m",
+        "width": "100%",
+        "height": 300,
+        "symbol": "NASDAQ:META",
+        "showIntervalTabs": true,
+        "locale": "es",
+        "colorTheme": "dark"
+      }
+      </script>
+    </div>
+  </div>
+
+  <!-- NIKE -->
+  <div class="signal-block">
+    <h2>NIKE - NKE</h2>
+    <div id="tradingview_nke" class="tradingview-widget-container"></div>
+    <script>
+      new TradingView.widget({
+        "container_id": "tradingview_nke",
+        "width": "100%",
+        "height": 420,
+        "symbol": "NYSE:NKE",
+        "interval": "30",
+        "timezone": "Etc/UTC",
+        "theme": "dark",
+        "style": "1",
+        "studies": ["RSI@tv-basicstudies","MACD@tv-basicstudies"],
+        "locale": "es"
+      });
+    </script>
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+      {
+        "interval": "1m",
+        "width": "100%",
+        "height": 300,
+        "symbol": "NYSE:NKE",
+        "showIntervalTabs": true,
+        "locale": "es",
+        "colorTheme": "dark"
+      }
+      </script>
+    </div>
+  </div>
+
+  <!-- MCDONALD'S -->
+  <div class="signal-block">
+    <h2>MCDONALD'S - MCD</h2>
+    <div id="tradingview_mcd" class="tradingview-widget-container"></div>
+    <script>
+      new TradingView.widget({
+        "container_id": "tradingview_mcd",
+        "width": "100%",
+        "height": 420,
+        "symbol": "NYSE:MCD",
+        "interval": "30",
+        "timezone": "Etc/UTC",
+        "theme": "dark",
+        "style": "1",
+        "studies": ["RSI@tv-basicstudies","MACD@tv-basicstudies"],
+        "locale": "es"
+      });
+    </script>
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+      {
+        "interval": "1m",
+        "width": "100%",
+        "height": 300,
+        "symbol": "NYSE:MCD",
+        "showIntervalTabs": true,
+        "locale": "es",
+        "colorTheme": "dark"
+      }
+      </script>
+    </div>
+  </div>
+
+  <!-- YPF -->
+  <div class="signal-block">
+    <h2>YPF - YPFD</h2>
+    <div id="tradingview_ypfd" class="tradingview-widget-container"></div>
+    <script>
+      new TradingView.widget({
+        "container_id": "tradingview_ypfd",
+        "width": "100%",
+        "height": 420,
+        "symbol": "BCBA:YPFD",
+        "interval": "30",
+        "timezone": "Etc/UTC",
+        "theme": "dark",
+        "style": "1",
+        "studies": ["RSI@tv-basicstudies","MACD@tv-basicstudies"],
+        "locale": "es"
+      });
+    </script>
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+      {
+        "interval": "1m",
+        "width": "100%",
+        "height": 300,
+        "symbol": "BCBA:YPFD",
+        "showIntervalTabs": true,
+        "locale": "es",
+        "colorTheme": "dark"
+      }
+      </script>
+    </div>
+  </div>
+
+  <!-- LEDESMA -->
+  <div class="signal-block">
+    <h2>LEDESMA - LEDE</h2>
+    <div id="tradingview_lede" class="tradingview-widget-container"></div>
+    <script>
+      new TradingView.widget({
+        "container_id": "tradingview_lede",
+        "width": "100%",
+        "height": 420,
+        "symbol": "BCBA:LEDE",
+        "interval": "30",
+        "timezone": "Etc/UTC",
+        "theme": "dark",
+        "style": "1",
+        "studies": ["RSI@tv-basicstudies","MACD@tv-basicstudies"],
+        "locale": "es"
+      });
+    </script>
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+      {
+        "interval": "1m",
+        "width": "100%",
+        "height": 300,
+        "symbol": "BCBA:LEDE",
+        "showIntervalTabs": true,
+        "locale": "es",
+        "colorTheme": "dark"
+      }
+      </script>
+    </div>
+  </div>
+
+  <!-- OLA / USDT -->
+  <div class="signal-block">
+    <h2>OLA / USDT - GATEIO</h2>
+    <div id="tradingview_olausdt" class="tradingview-widget-container"></div>
+    <script>
+      new TradingView.widget({
+        "container_id": "tradingview_olausdt",
+        "width": "100%",
+        "height": 420,
+        "symbol": "GATEIO:OLAUSDT",
+        "interval": "30",
+        "timezone": "Etc/UTC",
+        "theme": "dark",
+        "style": "1",
+        "studies": ["RSI@tv-basicstudies","MACD@tv-basicstudies"],
+        "locale": "es"
+      });
+    </script>
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+      {
+        "interval": "1m",
+        "width": "100%",
+        "height": 300,
+        "symbol": "GATEIO:OLAUSDT",
+        "showIntervalTabs": true,
+        "locale": "es",
+        "colorTheme": "dark"
+      }
+      </script>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <a href="https://wa.me/3886412987" class="vip-button">SOPORTE 24/7</a>
+  </footer>
+
+</body>
+</html>
